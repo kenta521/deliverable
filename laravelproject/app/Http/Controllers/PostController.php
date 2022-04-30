@@ -23,6 +23,11 @@ class PostController extends Controller
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
     }
+    
+    public function show(Post $post)
+    {
+    return view('show')->with(['post' => $post]);
+    }
 }
 
 ?>
