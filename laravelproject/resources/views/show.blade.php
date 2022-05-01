@@ -8,6 +8,11 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="/css/app.css">
         <p class="edit">[<a href="/posts/{{ $post->id }}/edit">編集する</a>]</p>
+        <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" style="display:inline">
+        @csrf
+        @method('DELETE')
+        <button type="submit">delete</button> 
+        </form>
     </head>
     <body>
         <h1 class="title">
