@@ -13,6 +13,65 @@
         @method('DELETE')
         <button type="submit">delete</button> 
         </form>
+        
+    <form class="mb-4" method="POST" action="{{ route('comment.store') }}">
+    @csrf
+ 
+    <input
+        name="post_id"
+        type="hidden"
+        value="{{ $post->id }}"
+    >
+ 
+    <div class="form-group">
+        <label for="subject">
+        名前
+        </label>
+ 
+ <input
+            id="name"
+            name="name"
+            class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}"
+            value="{{ old('name') }}"
+            type="text"
+        >
+        @if ($errors->has('name'))
+         <div class="invalid-feedback">
+         {{ $errors->first('name') }}
+         </div>
+        @endif
+    </div>
+ 
+    <div class="form-group">
+     <label for="body">
+     本文
+     </label>
+ 
+        <textarea
+            id="comment"
+            name="comment"
+            class="form-control {{ $errors->has('comment') ? 'is-invalid' : '' }}"
+            rows="4"
+        >{{ old('comment') }}</textarea>
+        @if ($errors->has('comment'))
+         <div class="invalid-feedback">
+         {{ $errors->first('comment') }}
+         </div>
+        @endif
+    </div>
+ 
+    <div class="mt-4">
+     <button type="submit" class="btn btn-primary">
+     コメントする
+     </button>
+    </div>
+</form>
+ 
+@if (session('commentstatus'))
+    <div class="alert alert-success mt-4 mb-4">
+     {{ session('commentstatus') }}
+    </div>
+@endif
     </head>
     <body>
         <h1 class="title">
