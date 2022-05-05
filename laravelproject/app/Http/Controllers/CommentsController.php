@@ -20,7 +20,7 @@ class CommentsController extends Controller
         $comment = new Comment;
         $comment->fill($savedata)->save();
  
-        return redirect()->route('bbs.show', [$savedata['post_id']])->with('commentstatus','コメントを投稿しました');
+        return redirect()->route('index', [$savedata['post_id']])->with('commentstatus','コメントを投稿しました');
     }
 }
 
