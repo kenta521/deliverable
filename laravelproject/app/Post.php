@@ -18,5 +18,9 @@ class Post extends Model
     {
         return $this->orderBy('updated_at','DESC')->limit($limit_count)->get();
     }
-//
+    
+    public function comments()
+    {
+        return $this->hasMany('App\Comment');
+    }
 }

@@ -82,8 +82,15 @@
                 <h3>本文</h3>
                 <p>{{ $post->body }}</p>    
             </div>
-        </div>
+            <div class=content_comment>
+                <h3>コメント</h3>
+                @foreach($comments as $comment)
+                <p class='name'>{{ $comment->name }}</p>
+                <p2 class='comment'>{{ $comment->comment }}</p2>
+                @endforeach
+            </div>
         <div class="footer">
+            
             <a href="/">戻る</a>
         </div>
     </body>
