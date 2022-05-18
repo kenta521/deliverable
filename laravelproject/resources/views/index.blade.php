@@ -16,6 +16,7 @@
                         <a href="/posts/{{ $post->id }}">{{ $post->title }}</a>
                     </h2>
                     <p class='body'>{{ $post->body }}</p>
+                     <p>{{$post->created_at}}</p>
                 </div>
             @endforeach
         </div>
